@@ -36,31 +36,31 @@ int main(){
   sprintf(p, "%o", file.st_mode & 511);
 
 
-    long fSize = file.st_size;
-    int x = 0;
-    while(fSize >= 1024){
-      fSize /= 1024;
-      x += 1;
-      if(x == 3){
-        break;
-      }
-    }
-
-    char * sizeStr;
-    if(x == 0){
-      sizeStr = "B";
-    }
-    if(x == 1){
-      sizeStr = "KB";
-    }
-    if(x == 2){
-      sizeStr = "MB";
-    }
+  long fSize = file.st_size;
+  int x = 0;
+  while(fSize >= 1024){
+    fSize /= 1024;
+    x += 1;
     if(x == 3){
-      sizeStr = "GB";
+      break;
     }
+  }
 
-    printf("File size in readable human form: %ld %s\n", fSize , sizeStr);
+  char * sizeStr;
+  if(x == 0){
+    sizeStr = "B";
+  }
+  if(x == 1){
+    sizeStr = "KB";
+  }
+  if(x == 2){
+    sizeStr = "MB";
+  }
+  if(x == 3){
+    sizeStr = "GB";
+  }
+
+  printf("File size in readable human form: %ld %s\n", fSize , sizeStr);
 
 
 
