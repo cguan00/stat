@@ -13,10 +13,6 @@
 int main(){
   struct stat file;
   stat("main.c", &file);
-  float size = (float) file.st_size;
-  while (size >= 1024){
-    size /= 1024;
-  }
 
   printf("File size: %lld \n", file.st_size);
   printf("Mode (permissions): %o\n", file.st_mode);
